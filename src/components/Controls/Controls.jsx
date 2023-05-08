@@ -11,8 +11,7 @@ const Controls = ({ onButtonClick, option }) => {
             <button
               type="button"
               className={css.button}
-              onClick={() => onButtonClick(option)}
-              // onClick={() => onButtonClick(option)}
+              onClick={() => onButtonClick(item)}
             >
               {item}
             </button>

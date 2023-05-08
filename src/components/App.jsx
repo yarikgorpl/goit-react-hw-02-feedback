@@ -12,18 +12,36 @@ class App extends Component {
   handleButton = options => {
     this.setState(prevState => ({ [options]: prevState[options] + 1 }));
   };
-  // handleButton = () => {
-  //   this.setState(prevState => ({
-  //     good: prevState.good + 1,
-  //   }));
+
+  // countTotalFeedback = () => {
+  //   const total = this.state.good + this.state.neutral + this.state.bad;
+
+  //   return total;
   // };
-  // handleButton = options => {
-  //   this.setState(prevState => {
-  //     return {
-  //       [options]: prevState[options] + 1,
-  //     };
-  //   });
-  // };
+
+  //перебираємо значення стейту та знаходимо суму
+  countTotalFeedback = () => {
+    const values = Object.values(this.state);
+    let total = 0;
+
+    for (const value of values) {
+      total += value;
+    }
+
+    return total;
+  };
+  //знаходимо відсоток хороших відгуків
+  countPositiveFeedbackPercentage = () => {
+    const good = this.state.good;
+    const total = this.countTotalFeedback();
+
+    if (total === 0) {
+      return 0;
+    }
+
+    return Math.round((good / total) * 100);
+  };
+
   render() {
     return (
       <div
@@ -42,35 +60,11 @@ class App extends Component {
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
+          total={this.countTotalFeedback}
+          positivePercentage={this.countPositiveFeedbackPercentage}
         />
       </div>
     );
   }
 }
 export default App;
-// handleButton = option => {
-//   this.setState(prevState => ({
-//     [option]: prevState[option] + 1,
-//   }));
-// };
-// // countTotalFeedback = () => {
-//   const values = Object.values(this.state);
-//   let total = 0;
-
-//   for (const value of values) {
-//     total += value;
-//   }
-
-//   return total;
-// };
-
-// countPositiveFeedbackPercentage = () => {
-//   const { good } = this.state;
-//   const total = this.countTotalFeedback();
-
-//   if (total === 0) {
-//     return 0;
-//   }
-
-//   return Math.round((good / total) * 100);
-// };
