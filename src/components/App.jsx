@@ -8,34 +8,22 @@ class App extends Component {
     bad: 0,
   };
   options = Object.keys(this.state);
+
   handleButton = options => {
-    this.setState(prevState => ({
-      [options]: prevState[options] + 1,
-    }));
+    this.setState(prevState => ({ [options]: prevState[options] + 1 }));
   };
-
-  // countTotalFeedback = () => {
-  //   const values = Object.values(this.state);
-  //   let total = 0;
-
-  //   for (const value of values) {
-  //     total += value;
-  //   }
-
-  //   return total;
+  // handleButton = () => {
+  //   this.setState(prevState => ({
+  //     good: prevState.good + 1,
+  //   }));
   // };
-
-  // countPositiveFeedbackPercentage = () => {
-  //   const { good } = this.state;
-  //   const total = this.countTotalFeedback();
-
-  //   if (total === 0) {
-  //     return 0;
-  //   }
-
-  //   return Math.round((good / total) * 100);
+  // handleButton = options => {
+  //   this.setState(prevState => {
+  //     return {
+  //       [options]: prevState[options] + 1,
+  //     };
+  //   });
   // };
-
   render() {
     return (
       <div
@@ -60,3 +48,29 @@ class App extends Component {
   }
 }
 export default App;
+// handleButton = option => {
+//   this.setState(prevState => ({
+//     [option]: prevState[option] + 1,
+//   }));
+// };
+// // countTotalFeedback = () => {
+//   const values = Object.values(this.state);
+//   let total = 0;
+
+//   for (const value of values) {
+//     total += value;
+//   }
+
+//   return total;
+// };
+
+// countPositiveFeedbackPercentage = () => {
+//   const { good } = this.state;
+//   const total = this.countTotalFeedback();
+
+//   if (total === 0) {
+//     return 0;
+//   }
+
+//   return Math.round((good / total) * 100);
+// };
