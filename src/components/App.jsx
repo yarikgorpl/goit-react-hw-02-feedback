@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Controls from './Controls/Controls';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions ';
 import Statistics from './Statistics/Statistics';
+import Section from './Section/Section';
+
 class App extends Component {
   state = {
     good: 0,
@@ -12,12 +14,6 @@ class App extends Component {
   handleButton = options => {
     this.setState(prevState => ({ [options]: prevState[options] + 1 }));
   };
-
-  // countTotalFeedback = () => {
-  //   const total = this.state.good + this.state.neutral + this.state.bad;
-
-  //   return total;
-  // };
 
   //перебираємо значення стейту та знаходимо суму
   countTotalFeedback = () => {
@@ -55,16 +51,22 @@ class App extends Component {
           flexDirection: 'column',
         }}
       >
-        <Controls onButtonClick={this.handleButton} option={this.options} />
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback}
-          positivePercentage={this.countPositiveFeedbackPercentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            onButtonClick={this.handleButton}
+            option={this.options}
+          />
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            sum={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </Section>
       </div>
     );
   }
 }
+
 export default App;

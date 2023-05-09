@@ -1,6 +1,6 @@
 import React from 'react';
-import css from 'components/Controls/Controls.module.css';
-
+import css from 'components/FeedbackOptions/FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
 const Controls = ({ onButtonClick, option }) => {
   return (
     <div className={css.wrapper}>
@@ -20,6 +20,11 @@ const Controls = ({ onButtonClick, option }) => {
       </ul>
     </div>
   );
+};
+
+Controls.propTypes = {
+  onButtonClick: PropTypes.func,
+  option: PropTypes.array,
 };
 
 export default Controls;
