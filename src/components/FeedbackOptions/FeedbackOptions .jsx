@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 const Controls = ({ onButtonClick, option }) => {
   return (
     <div className={css.wrapper}>
-      <h1 className={css.title}>Please leave feedback </h1>
       <ul className={css.list}>
         {option.map(item => (
           <li className={css.item} key={item}>
