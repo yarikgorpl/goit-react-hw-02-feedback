@@ -3,13 +3,13 @@ import css from 'components/Statistics/Statistics.module.css';
 
 import PropTypes from 'prop-types';
 
-const Statistics = ({ good, neutral, bad, sum, positivePercentage }) => {
+const Statistics = ({ title, good, neutral, bad, sum, positivePercentage }) => {
   if (!good && !neutral && !bad) {
-    return <p>"There is no feedback"</p>;
+    return <p className={css.text}>"No feedback given"</p>;
   } else {
     return (
       <div className={css.wrapper}>
-        <h2 className={css.title}>Statistics</h2>
+        <h2 className={css.title}>{title}</h2>
         <p className={css.text}>Good:{good}</p>
         <p className={css.text}>Neutral:{neutral}</p>
         <p className={css.text}>Bad:{bad}</p>

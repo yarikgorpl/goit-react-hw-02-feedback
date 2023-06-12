@@ -56,6 +56,8 @@ class App extends Component {
             onButtonClick={this.handleButton}
             option={this.options}
           />
+        </Section>
+        <Section title="Statistics">
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
